@@ -6,7 +6,7 @@
 |___/_|_|\___|_|\_(_)/ |___/
                    |__/
 
- Version: 1.6.0
+ Version: 1.6.1
   Author: Ken Wheeler
  Website: http://kenwheeler.github.io
     Docs: http://kenwheeler.github.io/slick
@@ -1166,30 +1166,30 @@
 
     };
 
-    Slick.prototype.getNavigableIndexes = function () {
+    Slick.prototype.getNavigableIndexes = function() {
 
-        var _ = this, breakPoint = 0, counter = 0, indexes = [], max;
+     var _ = this, breakPoint = 0, counter = 0, indexes = [], max;
 
-        if (_.options.infinite === false) {
-            max = _.slideCount - _.options.slidesToShow + 1;
-            if (_.options.centerMode === true) max = _.slideCount;
-        } else {
-            breakPoint = _.slideCount * -1;
-            counter = _.slideCount * -1;
-            max = _.slideCount * 2;
-        }
+     if(_.options.infinite === false) {
+         max = _.slideCount - _.options.slidesToShow + 1;
+         if (_.options.centerMode === true) max = _.slideCount;
+     } else {
+         breakPoint = _.slideCount * -1;
+         counter = _.slideCount * -1;
+         max = _.slideCount * 2;
+     }
 
-        while (breakPoint < max) {
-            indexes.push(breakPoint);
-            breakPoint = counter + _.options.slidesToScroll;
-            counter += _.options.slidesToScroll <= _.options.slidesToShow ? _.options.slidesToScroll : _.options.slidesToShow;
-        }
+     while (breakPoint < max){
+         indexes.push(breakPoint);
+         breakPoint = counter + _.options.slidesToScroll;
+         counter += _.options.slidesToScroll <= _.options.slidesToShow ? _.options.slidesToScroll  : _.options.slidesToShow;
+     }
 
-        if (indexes.indexOf(_.slideCount - _.options.slidesToShow) === -1) indexes.push(_.slideCount - _.options.slidesToShow);
+     if(indexes.indexOf(_.slideCount-_.options.slidesToShow) === -1) indexes.push(_.slideCount-_.options.slidesToShow);
 
-        return indexes;
+     return indexes;
 
-    };
+ };
 
     Slick.prototype.getSlick = function () {
 
